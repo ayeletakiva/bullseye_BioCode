@@ -20,6 +20,15 @@ def find_bulls(rand_str, gussed_str):
             sub_gussed += gussed_str[i]
     return bulls, sub_rand, sub_gussed
 
+def find_cows(sub_rand, sub_gussed):
+    cows = 0
+    rand_list = list(sub_rand)
+    for char in sub_gussed:
+        if char in rand_list:
+            cows += 1
+            rand_list.remove(char)         
+    return cows
+
 
 
 
@@ -30,4 +39,5 @@ rand = create_quartet()
 print(rand)
 test = input("Please try to guess a four DNA combination composed from A,T,C,G:\n")
 bulls, sub_rand, sub_gussed = find_bulls(rand, test)
-print(bulls, sub_rand, sub_gussed)
+cows = find_cows(sub_rand, sub_gussed)
+print("bulls = %d \n cows= %d " % (bulls, cows))
