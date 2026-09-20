@@ -36,8 +36,12 @@ def find_cows(sub_rand, sub_gussed):
 ### main program ###
 
 rand = create_quartet()
-print(rand)
-test = input("Please try to guess a four DNA combination composed from A,T,C,G:\n")
-bulls, sub_rand, sub_gussed = find_bulls(rand, test)
-cows = find_cows(sub_rand, sub_gussed)
-print("bulls = %d \n cows= %d " % (bulls, cows))
+guess = ""
+attempts = 0
+while rand != guess:
+    attempts += 1
+    guess = input("Please try to guess a four DNA combination composed from A,T,C,G:\n")
+    bulls, sub_rand, sub_gussed = find_bulls(rand, guess)
+    cows = find_cows(sub_rand, sub_gussed)
+    print("bulls = %d \ncows= %d " % (bulls, cows)) 
+print("You guessed after %d attempts" % (attempts))
