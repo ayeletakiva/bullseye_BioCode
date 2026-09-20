@@ -1,5 +1,6 @@
 import random
 
+#פונקציה היוצרת רצף רנדומלי בעל 4 תווים מהאותיות A T C G
 def create_quartet():
     rand_seq = ''
     nucleotides = ['A','C','T','G']
@@ -8,6 +9,7 @@ def create_quartet():
         rand_seq += random.choice(nucleotides)
     return rand_seq
 
+#פוקציה המקבלת את הרצף מהמחשת ואת הרצף של המשתמש ומחזירה את מספר העמדות השוות בין שני הרצפים ואת החלקים הלא שווים
 def find_bulls(rand_str, gussed_str):
     bulls = 0
     sub_rand = ''
@@ -20,6 +22,7 @@ def find_bulls(rand_str, gussed_str):
             sub_gussed += gussed_str[i]
     return bulls, sub_rand, sub_gussed
 
+#פונקציה המקבלת את עמדות הלא שוות מהרצף של המחשב והרצף של המשתמש ומחזירה את כמות האותיות שנמצאות בשניהם
 def find_cows(sub_rand, sub_gussed):
     cows = 0
     rand_list = list(sub_rand)
